@@ -1,6 +1,7 @@
 package com.msn.service;
 
 import com.msn.domain.Room;
+import com.msn.domain.User;
 import com.msn.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,5 +29,9 @@ public class RoomService {
 
     public void deleteRoom(Room room) {
         roomRepository.delete(room);
+    }
+
+    public List<Room> getAllUserRooms(User user) {
+        return roomRepository.findAllByUsers(user);
     }
 }
