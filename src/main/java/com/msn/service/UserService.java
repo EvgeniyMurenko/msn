@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class Repository {
+public class UserService {
 
     @Autowired
     private UserRepository userRepository;
 
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<User> getAllUsers(Boolean active) {
+        return userRepository.findAllByActive(active);
     }
 
     public User createUser(User user) {

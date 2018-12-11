@@ -1,7 +1,7 @@
 package com.msn.controller;
 
 import com.msn.domain.User;
-import com.msn.service.Repository;
+import com.msn.service.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -21,11 +21,11 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    Repository userService;
+    UserService userService;
 
     @GetMapping
     public List<User> getUserList(Model model){
-        return userService.getAllUsers();
+        return userService.getAllUsers(new Boolean(true));
     }
 
     @GetMapping("{id}")
